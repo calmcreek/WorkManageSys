@@ -1,0 +1,76 @@
+body{
+    background-color: floralwhite;
+}
+a{
+    text-decoration: none;
+}
+#homepage{
+    position: absolute;
+    top:25%;
+    left: 23%;
+    height:570px;
+    width:570px;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#name{
+    position: absolute;
+    top:30%;
+    left: 17%;
+    font-size: 200px;
+    opacity: 0.40;
+}
+.about{
+    position: absolute;
+    border-radius: 50%;
+    line-height: 400%;
+    height: 35%;
+    width: 35%;
+    color:#e3889f;
+    background-color: #eddca7;
+    top: 40px;
+    right: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+.work{
+    position: absolute;
+    border-radius: 50%;
+    line-height: 570%;
+    height: 40%;
+    width: 40%;
+    color:#81cd82;
+    background-color: #fdccde;
+    top: 40px;
+    left: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+.employ{
+    position: absolute;
+    border-radius: 50%;
+    line-height: 700%;
+    height: 50%;
+    width: 50%;
+    color:#69aca4;
+    background-color: #F0D9FF;
+    bottom: 40px;
+    right: 10px;
+    font-size: 40px;
+    text-align: center;
+}
+.login{
+    position: absolute;
+    border-radius: 50%;
+    line-height: 400%;
+    height: 30%;
+    width: 30%;
+    color:#fb6d6d;
+    background-color: #ebf4ac;
+    bottom: 40px;
+    left: 40px;
+    font-size: 40px;
+    text-align: center;
+}

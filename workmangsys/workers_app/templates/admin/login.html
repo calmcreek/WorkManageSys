@@ -1,0 +1,21 @@
+<!-- templates/admin/login.html -->
+{% extends "admin/login.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#show_password_checkbox').click(function(){
+                var password_field = $('#id_password');
+                if ($(this).prop('checked')){
+                    password_field.attr('type', 'text');
+                } else {
+                    password_field.attr('type', 'password');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+

@@ -1,0 +1,22 @@
+body{
+    background-color: #be7b72;
+}
+
+.navbar{
+    background-color: #fdaf7b;
+    height :50px;
+    padding-top: 17px ;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+}
+
+#navitems{
+    font-size: 25px;
+    color: #824d74;
+    text-decoration: none;
+    display: inline;
+}
