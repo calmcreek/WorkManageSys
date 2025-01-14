@@ -1,0 +1,50 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 70px; /* For fixed navbar */
+}
+
+/* Navbar */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #ffdd57;
+}
+
+/* Table */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px;
+}
+
+ul.list-unstyled {
+    padding-left: 0;
+}
+
+ul.list-unstyled li {
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+}
