@@ -127,15 +127,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # store static files in the staticfiles/ directory when collectstatic runs
 
-# Allow Django to find static files in your project
+
+# Include app-level static directories
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # This ensures it looks in 'static/' folder
+    os.path.join(BASE_DIR, 'workers_app', 'static'),
 ]
 
-# Use WhiteNoise for static file handling
-INSTALLED_APPS.append('whitenoise.runserver_nostatic')  # Add this at the end of installed apps
-
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # Add after SecurityMiddleware
+# WhiteNoise settings for serving static files in production
+INSTALLED_APPS.append('whitenoise.runserver_nostatic')
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
