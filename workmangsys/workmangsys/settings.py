@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-7poch=10#(=d&7+l&t-5k39!r3v=ta7llj6l#05#jeou6-&fmt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "mounya-work-management-system.onrender.com",
+]
 
 
 # Application definition
