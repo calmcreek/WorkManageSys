@@ -66,7 +66,7 @@ class Worker(models.Model):
     role = models.ForeignKey(Role, on_delete = models.CASCADE, null = False)
     skill_level = models.IntegerField(default = 0)
     email = models.EmailField(null = False)
-    phones = models.IntegerField(null = False)
+    phones = models.CharField(max_length=15, null = False)
     address = models.CharField(max_length = 100, null = False)
     platform = models.CharField(max_length = 100, null = False)
     gender= models.CharField(choices = GENDER_CHOICES, max_length = 10)

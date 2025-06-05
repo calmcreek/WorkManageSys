@@ -42,6 +42,7 @@
 
     <main class="container mt-5">
         <h1 class="text-center my-4">All Workers Details List</h1>
+        <div class="shiny-border p-3 mb-4">
         <div class="table-responsive">
             <table class="table table-success table-striped table-bordered">
                 <thead class="table-dark">
@@ -54,22 +55,36 @@
                 </thead>
                 <tbody>
                     {% for emp in emps %}
-                    <tr>
+                    <tr class="expandable-row">
+
                         <td>{{ emp.name }}</td>
                         <td>{{ emp.role.role }}</td>
                         <td>{{ emp.phones }}</td>
                         <td>
-                            <ul class="list-unstyled">
+                            <div class="default-work">
+                                {% with emp.assigned_works.all|first as first_work %}
+                                {% if first_work %}
+                                    • {{ first_work.work_name }}
+                                {% else %}
+                                    <em>No works</em>
+                                {% endif %}
+                                {% endwith %}
+                            </div>
+                            {% if emp.assigned_works.all|length > 1 %}
+                            <ul class="list-unstyled work-list">
                                 {% for work in emp.assigned_works.all %}
                                 <li>{{ work.work_name }}</li>
                                 {% endfor %}
                             </ul>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        </div>
+
     </main>
 
     <footer class="text-center py-3 bg-primary text-white">

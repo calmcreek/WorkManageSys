@@ -1,5 +1,7 @@
 your system should first pip install django
 open terminal and enter the folder workmangsys
 you will have a file named manage.py
+python manage.py migrate
 in the terminal run : python manage.py runserver
 and running the above command you will get the link to run the code website
+(neon database with github login)
