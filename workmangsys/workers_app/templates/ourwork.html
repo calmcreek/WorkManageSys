@@ -2,66 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Details AMS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'ourwork.css' %}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Details AMS</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+  <!-- Custom CSS -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'ourwork-v2.css' %}" />
+
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="/" class="navitems">
-            <sub><span class="material-symbols-outlined">house</span></sub>
-            <b>Home</b>
-        </a>
-        <a href="/about" class="navitems">
-            <sub><span class="material-symbols-outlined">table_view</span></sub>
-            <b>About</b>
-        </a>
-        <a href="/employeelist" class="navitems">
-            <sub><span class="material-symbols-outlined">contact_phone</span></sub>
-            <b>Workers</b>
-        </a>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">AMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="container">
-        <h1 class="text-center my-4">ALL WORK DETAILS LIST</h1>
-        <table class="table table-success table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Work ID</th>
-                    <th scope="col">Work Name</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Start Date</th>
-                    <th scope="col">Duration Days</th>
-                    <th scope="col">Assigned Workers</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for work in works %}
-                <tr>
-                    <th scope="row">{{ work.work_ID }}</th>
-                    <td>{{ work.work_name }}</td>
-                    <td>{{ work.priority }}</td>
-                    <td>{{ work.start_date }}</td>
-                    <td>{{ work.duration_days }}</td>
-                    <td>
-                        <ul>
-                            {% for worker in work.assigned_workers.all %}
-                            <li>{{ worker.name }}</li>
-                            {% empty %}
-                            <li>No workers assigned</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <span class="material-symbols-outlined">house</span> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">
+              <span class="material-symbols-outlined">table_view</span> About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/employeelist">
+              <span class="material-symbols-outlined">contact_phone</span> Workers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <span class="material-symbols-outlined">login</span> Admin Login
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5 pt-5">
+    <h1 class="text-center mb-4">ALL WORK DETAILS LIST</h1>
+
+    <div class="table-responsive">
+      <table class="table table-success table-striped align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Work ID</th>
+            <th scope="col">Work Name</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">Assigned Workers & Roles</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for work in works %}
+          <tr>
+            <th scope="row">{{ work.work_ID }}</th>
+            <td>{{ work.work_name }}</td>
+            <td>{{ work.start_date }}</td>
+            <td>
+              <ul class="mb-0">
+                {% for worker in work.assigned_workers.all %}
+                <li>{{ worker.name }} – <em>{{ worker.role }}</em></li>
+                {% empty %}
+                <li>No workers assigned</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

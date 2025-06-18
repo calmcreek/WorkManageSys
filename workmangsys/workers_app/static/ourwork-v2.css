@@ -1,0 +1,119 @@
+/* ✨ Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 🎨 Color Palette */
+:root {
+  --primary: #1e293b;     /* Dark blue-gray */
+  --light: #f1f5f9;       /* Light gray */
+  --white: #ffffff;
+}
+
+/* 🧍 Base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light);
+  color: var(--primary);
+  margin: 0;
+  padding-top: 70px;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  background-color: var(--primary);
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navitems {
+  color: var(--light);
+  text-decoration: none;
+  margin-right: 18px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.navitems:hover {
+  background-color: var(--light);
+  color: var(--primary);
+}
+
+.navitems .material-symbols-outlined {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+/* 📦 Container */
+.container {
+  margin: 40px auto;
+  padding: 24px;
+  max-width: 1200px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 🧾 Headings */
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+/* 📋 Table */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  padding: 14px;
+}
+
+.table th {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.table tbody tr {
+  background-color: var(--light);
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.table tbody tr:hover {
+  transform: scale(1.005);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.table td {
+  font-size: 15px;
+  color: var(--primary);
+}
+
+/* 👥 Assigned Worker List */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul li {
+  background-color: #1e293b;
+  margin: 4px 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--white);
+  text-align: left;
+}

@@ -1,0 +1,206 @@
+/* Reset & Base */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff; /* solid white background */
+    color: #1a3c1a; /* dark green text */
+    padding-top: 80px;
+    animation: fadeIn 1.2s ease;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Glowing sparkles */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(80, 200, 180, 0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(40, 180, 160, 0.3) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    animation: sparkleMove 30s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Headings */
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #2a7f7f; /* teal/dark turquoise */
+    text-align: center;
+    text-shadow: 0 0 15px #59bdbd, 0 0 25px #2d8f8f;
+    z-index: 3;
+    position: relative;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: #276666; /* darker teal */
+    z-index: 3;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #55b6a3, #2d8f8f); /* teal gradient */
+    box-shadow: 0 4px 20px rgba(45, 143, 143, 0.4);
+    padding: 12px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1f6b6b;
+}
+
+/* Navbar items */
+.navitems {
+    font-size: 18px;
+    color: #d0f0ef; /* light turquoise */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    border-radius: 12px;
+    background-color: rgba(45, 143, 143, 0.25);
+    transition: 0.4s ease;
+    text-shadow: 0 0 10px rgba(208, 240, 239, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.navitems:hover {
+    background-color: rgba(45, 143, 143, 0.8);
+    color: #b0f3f1;
+    box-shadow: 0 0 15px #6ff3f0, 0 0 30px #43d6d4;
+}
+
+/* Material Icons */
+.material-symbols-outlined {
+    font-size: 22px;
+    color: #d0f0ef;
+}
+
+/* Main Container */
+.container {
+    padding: 40px 30px;
+    max-width: 960px;
+    margin: auto;
+    background: #c7f0ecdd; /* translucent light turquoise */
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(45, 143, 143, 0.4);
+    animation: fadeInUp 1.4s ease;
+    position: relative;
+    z-index: 3;
+    color: #1a3c3c;
+}
+
+/* Footer */
+footer {
+    background-color: #2d8f8f40; /* semi-transparent dark teal */
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 50px;
+    color: #1f6b6b;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05);
+    z-index: 3;
+}
+
+/* Hover Sparkles */
+.navitems::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle, rgba(100, 230, 220, 0.6) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    animation: sparkleRotate 6s linear infinite;
+}
+
+.navitems:hover::after {
+    opacity: 1;
+}
+
+/* Starfall Animation Layer */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 10px,
+        rgba(100, 230, 220, 0.2) 12px
+    );
+    animation: starfall 20s linear infinite;
+    z-index: 2;
+    mix-blend-mode: screen;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkleMove {
+    0% { background-position: 0 0, 40px 40px; }
+    100% { background-position: 100px 100px, 140px 140px; }
+}
+
+@keyframes sparkleRotate {
+    0% { transform: rotate(0deg) translateZ(0); }
+    100% { transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes starfall {
+    0% { background-position: 0 -200%; }
+    100% { background-position: 0 200%; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navitems {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+}
